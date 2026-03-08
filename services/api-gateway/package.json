@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "wrangler dev src/index.ts",
-    "test": "echo \"No tests for this service yet\" && exit 0"
+    "test": "vitest run --passWithNoTests"
   },
   "keywords": [],
   "author": "",
