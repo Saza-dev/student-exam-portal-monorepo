@@ -12,7 +12,8 @@
       "persistent": true
     },
     "deploy": {
-      "dependsOn": ["build"]
+      "dependsOn": ["build"],
+      "env": ["CLOUDFLARE_API_TOKEN"]
     }
   }
 }
