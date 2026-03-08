@@ -1,0 +1,29 @@
+{
+  "name": "@assessment/papers-svc",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@assessment/db": "workspace:*",
+    "@assessment/middleware": "workspace:*",
+    "@assessment/schemas": "workspace:*",
+    "@assessment/types": "workspace:*",
+    "@assessment/utils": "workspace:*",
+    "@neondatabase/serverless": "^0.10.4",
+    "hono": "^4.6.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@assessment/eslint-config": "workspace:*",
+    "@assessment/prettier-config": "workspace:*",
+    "@cloudflare/workers-types": "latest",
+    "typescript": "latest",
+    "wrangler": "latest"
+  }
+}

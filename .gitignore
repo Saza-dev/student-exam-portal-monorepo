@@ -1,0 +1,20 @@
+# Dependencies
+node_modules
+.pnpm-debug.log
+
+# Build Outputs
+.next
+dist
+.turbo
+build
+.wrangler
+
+
+# Environment Secrets
+wrangler.toml # Only ignore if it contains sensitive keys
+**/.dev.vars
+**/.env
+**/.env.local
+
+# System Files
+.DS_Store

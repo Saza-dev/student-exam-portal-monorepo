@@ -1,0 +1,13 @@
+{
+  "name": "@assessment/utils",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@assessment/types": "workspace:*"
+  },
+  "devDependencies": {
+    "@assessment/eslint-config": "workspace:*",
+    "@assessment/prettier-config": "workspace:*"
+  }
+}

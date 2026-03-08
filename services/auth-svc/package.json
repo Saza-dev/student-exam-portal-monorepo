@@ -1,0 +1,32 @@
+{
+  "name": "@assessment/auth-svc",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@assessment/db": "workspace:*",
+    "@assessment/middleware": "workspace:*",
+    "@assessment/schemas": "workspace:*",
+    "@assessment/types": "workspace:*",
+    "@assessment/utils": "workspace:*",
+    "@hono/zod-validator": "^0.7.6",
+    "@neondatabase/serverless": "latest",
+    "bcryptjs": "latest",
+    "hono": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@assessment/eslint-config": "workspace:*",
+    "@assessment/prettier-config": "workspace:*",
+    "@cloudflare/workers-types": "latest",
+    "@types/bcryptjs": "latest",
+    "typescript": "latest",
+    "wrangler": "latest"
+  }
+}

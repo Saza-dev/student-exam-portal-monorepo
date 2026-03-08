@@ -1,0 +1,32 @@
+{
+  "name": "exam-svc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "dependencies": {
+    "@assessment/db": "workspace:*",
+    "@assessment/middleware": "workspace:*",
+    "@assessment/schemas": "workspace:*",
+    "@assessment/types": "workspace:*",
+    "@assessment/utils": "workspace:*",
+    "@hono/zod-validator": "^0.7.6",
+    "@neondatabase/serverless": "^1.0.2",
+    "hono": "^4.12.5",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260307.1",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.71.0"
+  }
+}

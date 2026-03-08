@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1772868662030,
+      "tag": "0000_nostalgic_bloodstorm",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1772875427101,
+      "tag": "0001_serious_xorn",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1772875627009,
+      "tag": "0002_minor_exiles",
+      "breakpoints": true
+    }
+  ]
+}

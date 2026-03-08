@@ -1,0 +1,51 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main] # Trigger on push to main
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # Required for Turborepo diffing
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9 # Requirement: pnpm 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Requirement: Node 20
+          cache: "pnpm" # Restores pnpm store cache
+
+      - name: Cache Turborepo
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }} # Key derived from git SHA
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile # Ensure lockfile integrity
+
+      - name: Build Affected
+        run: pnpm turbo build --filter='[HEAD^1]' # Build only changed packages
+
+      - name: Test Affected
+        run: pnpm turbo test --filter='[HEAD^1]' # Fail if any test fails
+
+      - name: Deploy Workers
+        # Skip deploy step for pull requests
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: pnpm turbo deploy --filter='[HEAD^1]' --filter='./services/*'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

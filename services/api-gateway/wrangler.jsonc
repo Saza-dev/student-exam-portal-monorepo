@@ -1,0 +1,30 @@
+{
+  "name": "api-gateway",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-03-07",
+  "dev": {
+    "port": 3001,
+  },
+  // 1. Requirement 3: Define the KV namespace for Rate Limiting
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "rate_limit_kv",
+    },
+  ],
+  // 2. Requirement 4: Define Service Bindings for internal routing
+  "services": [
+    {
+      "binding": "AUTH_SVC",
+      "service": "auth-svc",
+    },
+    {
+      "binding": "PAPERS_SVC",
+      "service": "papers-svc",
+    },
+    {
+      "binding": "EXAM_SVC",
+      "service": "exam-svc",
+    },
+  ],
+}

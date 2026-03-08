@@ -1,0 +1,14 @@
+{
+  "name": "exam-svc",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-03-07",
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "xxxxxxx",
+    },
+  ],
+  "dev": {
+    "port": 8789,
+  },
+}
