@@ -40,6 +40,12 @@ importers:
         specifier: ^4.0.18
         version: 4.0.18(@types/node@25.3.5)(happy-dom@20.8.3)(jiti@2.6.1)(lightningcss@1.31.1)(tsx@4.21.0)
 
+  apps/admin:
+    devDependencies:
+      typescript:
+        specifier: '*'
+        version: 5.9.3
+
   apps/portal:
     dependencies:
       '@ant-design/icons':

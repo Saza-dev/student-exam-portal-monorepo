@@ -1,5 +1,8 @@
 {
   "name": "@assessment/eslint-config",
   "version": "1.0.0",
-  "main": "index.js"
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'No tests for eslint-config'"
+  }
 }

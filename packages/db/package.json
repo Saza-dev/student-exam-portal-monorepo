@@ -6,7 +6,8 @@
   "scripts": {
     "generate": "drizzle-kit generate",
     "push": "drizzle-kit push",
-    "seed": "tsx src/seed.ts"
+    "seed": "tsx src/seed.ts",
+    "test": "echo 'No tests for db'"
   },
   "dependencies": {
     "postgres": "latest"

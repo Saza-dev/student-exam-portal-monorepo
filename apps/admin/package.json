@@ -1,0 +1,11 @@
+{
+  "name": "admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "echo 'No tests for admin'"
+  },
+  "devDependencies": {
+    "typescript": "*"
+  }
+}

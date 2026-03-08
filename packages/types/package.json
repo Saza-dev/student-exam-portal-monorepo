@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
+  "scripts": {
+    "test": "echo 'No tests for types'"
+  },
   "devDependencies": {
     "@assessment/eslint-config": "workspace:*",
     "@assessment/prettier-config": "workspace:*"
