@@ -9,7 +9,7 @@
   "kv_namespaces": [
     {
       "binding": "KV",
-      "id": "rate_limit_kv",
+      "id": "6568a0bde1814fada19f854314faf49d",
     },
   ],
   // 2. Requirement 4: Define Service Bindings for internal routing
