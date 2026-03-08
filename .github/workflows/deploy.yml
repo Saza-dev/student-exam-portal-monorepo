@@ -38,14 +38,15 @@ jobs:
         run: pnpm install --frozen-lockfile # Ensure lockfile integrity
 
       - name: Build Affected
-        run: pnpm turbo build --filter='...[HEAD^1]' || pnpm turbo build' # Build only changed packages
+        # This handles the initial push by falling back to a full build if no parent commit exists
+        run: pnpm turbo build --filter='...[HEAD^1]' || pnpm turbo build
 
       - name: Test Affected
-        run: pnpm turbo test --filter='...[HEAD^1]' || pnpm turbo test # Fail if any test fails
+        run: pnpm turbo test --filter='...[HEAD^1]' || pnpm turbo test
 
       - name: Deploy Workers
-        # Skip deploy step for pull requests
+        # Skip deploy step for pull requests; only deploy on push to main
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: pnpm turbo deploy --filter='[HEAD^1]' --filter='./services/*'
+        run: pnpm turbo deploy --filter='[HEAD^1]' --filter='./services/*' || pnpm turbo deploy --filter='./services/*'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
