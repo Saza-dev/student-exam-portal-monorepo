@@ -45,12 +45,8 @@ jobs:
         run: pnpm turbo test --filter='...[HEAD^1]' --continue || pnpm turbo test --continue
 
       - name: Deploy Workers
-        # Skip deploy step for pull requests; only deploy on push to main
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          CLOUDFLARE_API_TOKEN=${{ secrets.CLOUDFLARE_API_KEY }} \
-          CLOUDFLARE_EMAIL=${{ secrets.CLOUDFLARE_EMAIL }} \
-          pnpm turbo deploy --filter='[HEAD^1]' --filter='./services/*' || \
-          CLOUDFLARE_API_TOKEN=${{ secrets.CLOUDFLARE_API_KEY }} \
-          CLOUDFLARE_EMAIL=${{ secrets.CLOUDFLARE_EMAIL }} \
-          pnpm turbo deploy --filter='./services/*'
+        run: pnpm turbo deploy --filter='[HEAD^1]' --filter='./services/*' || pnpm turbo deploy --filter='./services/*'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}

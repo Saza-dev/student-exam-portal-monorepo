@@ -7,7 +7,7 @@
     },
     "deploy": {
       "dependsOn": ["build"],
-      "env": ["CLOUDFLARE_API_KEY", "CLOUDFLARE_EMAIL", "CLOUDFLARE_API_TOKEN"],
+      "env": ["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_EMAIL"],
       "cache": false
     },
     "test": {
