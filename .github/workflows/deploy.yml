@@ -38,10 +38,10 @@ jobs:
         run: pnpm install --frozen-lockfile # Ensure lockfile integrity
 
       - name: Build Affected
-        run: pnpm turbo build --filter='[HEAD^1]' # Build only changed packages
+        run: pnpm turbo build --filter='...[HEAD^1]' || pnpm turbo build' # Build only changed packages
 
       - name: Test Affected
-        run: pnpm turbo test --filter='[HEAD^1]' # Fail if any test fails
+        run: pnpm turbo test --filter='...[HEAD^1]' || pnpm turbo test # Fail if any test fails
 
       - name: Deploy Workers
         # Skip deploy step for pull requests
