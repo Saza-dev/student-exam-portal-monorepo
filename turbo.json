@@ -5,15 +5,10 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
-    "test": {},
-    "lint": {},
-    "dev": {
-      "cache": false,
-      "persistent": true
-    },
     "deploy": {
       "dependsOn": ["build"],
-      "env": ["CLOUDFLARE_API_KEY", "CLOUDFLARE_EMAIL"]
+      "env": ["CLOUDFLARE_API_KEY", "CLOUDFLARE_EMAIL"],
+      "cache": false 
     }
   }
 }
