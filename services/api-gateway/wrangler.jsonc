@@ -2,6 +2,7 @@
   "name": "api-gateway",
   "main": "src/index.ts",
   "compatibility_date": "2026-03-07",
+  "workers_dev": true,
   "dev": {
     "port": 3001,
   },
